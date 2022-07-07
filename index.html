@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost/mooccal/signup -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Sign Up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="http://localhost/mooccal/css/img/MOOCs%20Cal%20Logo%20Circle.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Scope+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body class="master2" data-new-gr-c-s-check-loaded="14.1020.0" data-gr-ext-installed="">
+		<div class="large">
+		<div class="form2">
+		<div class="padding">
+			<form>
+				<h1>Create an account</h1>
+	            <h3>Already have an account? <a href="http://localhost/mooccal/">Log in</a> </h3>
+	            <div class="first" id="namebox">
+					<label for="name">Name</label>
+					<br>
+					<br>
+					<input type="text" name="name" id="name" placeholder="Full Name">
+					<label class="errortext"></label>
+					<br>
+					<br>
+				</div>
+				<div class="join23 clearfix">
+					<div class="second" id="streambox">
+						<label for="stream">Stream</label>
+						<br>
+						<br>
+						<select name="stream" id="stream">
+							<option value="-1">-Select-</option>
+							<option value="1" data-nyear="4">AIML</option>
+							<option value="2" data-nyear="4">CSE</option>
+							<option value="4" data-nyear="3">FT</option>
+							<option value="5" data-nyear="4">IT</option>
+							<option value="3" data-nyear="3">ME</option>
+						</select>
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+					<div class="third" id="yearbox">
+						<label for="year">Year</label>
+						<br>
+						<br>
+						<select name="year" id="year">
+							<option value="-1">-Select-</option>
+						</select>
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="join23 clearfix">
+					<div class="second" id="collegebox">
+						<label for="college">College</label>
+						<br>
+						<br>
+						<select name="college" id="college">
+							<option value="">-Select-</option>
+															<option value="1">Techno Main Salt Lake</option>
+													</select>
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+					<div class="fifth" id="useridbox">
+						<label for="userid">Univ. Roll No.</label>
+						<br>
+						<br>
+						<input type="text" name="userid" id="userid" placeholder="University Roll Number">
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="join67 clearfix">
+					<div class="sixth" id="passwordbox">
+						<label for="password">Password</label>
+						<br>
+						<br>
+						<input type="password" name="password" id="password" placeholder="Password">
+						<button type="button" class="little1"><span class="fa fa-eye-slash"></span></button>
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+					<div class="seventh" id="cpasswordbox">
+						<label for="cpassword">Confirm Password</label>
+						<br>
+						<br>
+						<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password">
+						<button type="button" class="little1"><span class="fa fa-eye-slash"></span></button>
+						<label class="errortext"></label>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="eighth">
+					<button type="submit" class="sign" id="signup">Sign Up</button>
+					<br>
+					<br>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#signup').click(function(e){
+				e.preventDefault();
+				// console.log($('form').serialize());
+				$('.errortext').text('');
+				$('.errortext').html('');
+				$('.errortext').css('backgroundColor', 'transparent');
+				$('.error').removeClass('error');
+				$.ajax({
+					url: 	'http://localhost:80/mooccal/signup/addstd',
+					type: 	'post',
+		 			data: 	$('form input, form select').serialize(),
+
+		 			success: function(result) {
+		 				result = JSON.parse(result);
+		 				// console.log(result);
+		 				if (result['res'] == '1') {
+		 					alert('Your account is successfully created. Login with the user details to access your account.');
+		 					window.location.assign("http://localhost:80/mooccal/signup/vmail?i=" + result['i']);
+		 					// id has to be passed to this page
+		 				}
+		 				else if (result['res'] == '2') {
+		 					alert('Sign Up Failed!');
+		 					// id has to be passed to this page
+		 				}
+		 				else {
+		 					if (result['name']) {
+		 						$('#name').addClass('error');
+		 						$('#namebox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['name']);
+		 						$('#namebox .errortext').css('display', 'block');
+		 						$('#namebox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['stream']) {
+		 						$('#stream').addClass('error');
+		 						$('#streambox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['stream']);
+		 						$('#streambox .errortext').css('display', 'block');
+		 						$('#streambox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['year']) {
+		 						$('#year').addClass('error');
+		 						$('#yearbox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['year']);
+		 						$('#yearbox .errortext').css('display', 'block');
+		 						$('#yearbox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['college']) {
+		 						$('#college').addClass('error');
+		 						$('#collegebox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['college']);
+		 						$('#collegebox .errortext').css('display', 'block');
+		 						$('#collegebox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['userid']) {
+		 						$('#userid').addClass('error');
+		 						$('#useridbox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['userid']);
+		 						$('#useridbox .errortext').css('display', 'block');
+		 						$('#useridbox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['password']) {
+		 						$('#password').addClass('error');
+		 						$('#passwordbox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['password']);
+		 						$('#passwordbox .errortext').css('display', 'block');
+		 						$('#passwordbox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 					if (result['cpassword']) {
+		 						$('#cpassword').addClass('error');
+		 						$('#cpasswordbox .errortext').html('<i class="fa fa-times-circle"></i> ' + result['cpassword']);
+		 						$('#cpasswordbox .errortext').css('display', 'block');
+		 						$('#cpasswordbox .errortext').css('backgroundColor', '#FFBABA');
+		 					}
+		 				}
+		 			}
+				});
+			});
+
+			$('#stream').change(function(){
+				// console.log($('#stream').val() + ", " + $('#stream option:nth-child('+$('#stream').val()+')').data('nyear'));
+				var htmlcode='';
+				if ($('#stream option:selected').val() == '-1') {
+					htmlcode = '<option value="-1">-Select-</option>'
+				}
+				for (var i = 1; i <= $('#stream option:selected').data('nyear'); i++) {
+					htmlcode += '<option value="' + i + '">' + i + '</option>';
+				}
+				$('#year').html(htmlcode);
+			});
+
+			$('.little1 span').click(function(){
+				if ($('.little1 span').hasClass('fa-eye')) {
+					$('.little1 span').addClass('fa-eye-slash');
+					$('.little1 span').removeClass('fa-eye');
+					$('#password').attr('type', 'password');
+					$('#cpassword').attr('type', 'password');
+				} else {
+					$('.little1 span').addClass('fa-eye');
+					$('.little1 span').removeClass('fa-eye-slash');
+					$('#password').attr('type', 'text');
+					$('#cpassword').attr('type', 'text');
+				}
+			});
+		});
+	</script>
+
+</body></html>

@@ -1,0 +1,358 @@
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    padding: 10px 0px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-weight: bold;
+}
+.large
+{
+    width: 100%;
+}
+
+.master2 {
+    background-image: url(../img/signup.jpg);
+    background-position:center;
+    background-attachment: fixed;
+    background-size: cover;
+    height:970px;
+}
+
+.form2 {
+    background-color:rgba(154, 165, 167, 0.5);
+    width:73%;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+.padding {
+    width:75%;
+    margin: 0 auto;
+}
+
+.padding h1 {
+    color:rgb(46, 140, 140) ;
+    font-size: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 50px;
+}
+
+.padding h3 {
+    color: rgb(190, 233, 233);
+    font-size:25px;
+}
+
+
+
+
+h3 a {
+    text-decoration: none;
+    color:rgb(61, 78, 109);
+    font-size:18px;
+}
+h3 a:hover {
+    color:rgb(136, 165, 214);
+}
+
+
+.first label:first-child {
+    font-size: 23px;
+}
+.first input {
+    height: 40px;
+    font-size: 16px;
+    text-align:center;
+    width:100%;
+    border: hidden;
+}
+
+.second {
+    float: left;
+    width:40%;
+}
+.second label:first-child {
+    font-size: 20px;
+}
+.second select {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+    font-size: 15px;
+}
+
+.third {
+    float:right;
+    width:40%;
+}
+.third label:first-child {
+    font-size: 20px;
+}
+.third select {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+    font-size: 15px;
+}
+
+.fourth {
+    float: left;
+    width:40%;
+}
+.fourth label:first-child {
+    font-size: 20px;
+}
+.fourth select {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+}
+
+.fifth {
+    float:right;
+    width:40%;
+}
+.fifth label:first-child {
+    font-size: 20px;
+}
+.fifth input {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+}
+
+
+.sixth {
+    float: left;
+    width:40%;
+
+}
+.sixth label:first-child {
+    font-size: 20px;
+}
+.sixth input {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+}
+
+.eye {
+    position: relative;
+    bottom:30px;
+    right: 4%;
+}
+
+.little1 span
+{
+    font-size:17px;
+    color: rgb(9, 99, 84);
+}
+.little1
+{
+    border: none;
+    float:right;
+    text-align: right;
+    position: relative;
+    bottom: 32px;
+    cursor: pointer;
+    background: none;
+
+
+}
+
+.seventh {
+    float:right;
+    width:40%;
+}
+
+.seventh label:first-child {
+    font-size: 20px;
+}
+
+
+.seventh input {
+    width:100%;
+    height: 40px;
+    border: hidden;
+    text-align:center;
+}
+
+.eighth button {
+    font-size:16px;
+    height:45px;
+    width: 100%;
+    border: hidden;
+    background-color:rgb(46, 140, 140);
+    border-radius:4%;
+    cursor: pointer;
+    color: #fff;
+    font-weight:600;
+    font-family: 'Raleway', sans-serif;
+}
+
+.eighth button:hover {
+    background-color:rgb(81, 189, 189);
+
+}
+
+
+.error {
+    color: #D8000C;
+    border: 2px solid #D8000C;
+}
+.errortext {
+    float: left;
+    color: #D8000C;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 5px 4px;
+    width: 95%;
+    border-radius: 5px;
+}
+@media only screen and (max-width:760px)
+
+{
+    .form2
+    {
+        width:100%;
+       
+    }
+    .padding h1 
+    {
+        font-size:25px;
+    }
+    
+    .padding h3 {
+        font-size:18px;
+    
+    }
+    h3 a
+    {
+        font-size:14px;
+        
+    }
+    
+
+    .first label:first-child 
+    {
+        font-size: 16px;
+    }
+    .first input {
+        height: 25px;
+        font-size: 12px;
+    }
+    
+  
+    .second label:first-child {
+        font-size: 16px;
+    }
+    .second select {
+        height:25px;
+        font-size: 12px;
+
+    }
+    
+   
+    .third label:first-child {
+        font-size: 16px;
+    }
+    .third select {
+        height: 25px;
+        text-align:center;
+        font-size: 10px;
+    }
+   
+    
+    .fourth select {
+        height: 30px;
+        font-size:10px;
+
+    }
+
+    
+    .fifth label:first-child {
+        font-size: 14px;
+    }
+    .fifth input {
+        height: 25px;
+        text-align:center;
+        font-size:9px;
+    }
+    
+    
+    
+    .sixth label:first-child {
+        font-size: 14px;
+    }
+    .sixth input {
+        height: 25px;
+        text-align:left;
+
+        font-size:10px;
+    }
+        .little1
+    {
+        border: none;
+        float:right;
+        text-align: right;
+        position: relative;
+        bottom: 32px;
+
+        cursor: pointer;
+        background: none;
+
+
+    }
+
+    
+    .little1 span
+    {
+        font-size:10px;
+        position: relative;
+        top: 7px;
+        color: rgb(9, 99, 84);
+        left: 8px;
+    }
+  
+    
+    .seventh label:first-child {
+        font-size: 10px;
+    }
+    .seventh input {
+        height: 25px;
+        text-align:left;
+        font-size:10px;
+
+
+    }
+    
+    .eighth button {
+        font-size:12px;
+        height:30px;
+        position: relative;
+        bottom:30px;
+    }
+    .errortext
+    {
+       
+        font-size: 10px;
+       
+    }
+}
+
+
+@media only screen and (max-width:1100px)
+{
+    
+}
